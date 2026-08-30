@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANStore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <!-- barra de anuncio: quedó igual, estaba bien -->
+        <div class="anuncio">Envío gratis en compras mayores a $15000!</div>
+
+        <!-- contenedor de la barra principal, para poder alinear las 3 partes con CSS después -->
+        <div class="header-principal">
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+
+            <nav>
+                <ul>
+                    <li><a href="listado_box.html">Shop</a></li>
+                    <li><a href="#">Sobre nosotros</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Login</a></li>
+                </ul>
+            </nav>
+
+            <a href="index.html" class="logo">ANStore</a>
+
+            <div class="header-acciones">
+                <a href="#" class="accion-icono" aria-label="Buscar">
+                    <span class="icono">🔍</span><span class="texto-nav">Buscar</span>
+                </a>
+                <a href="comprar.html" class="accion-icono" aria-label="Carrito">
+                    <span class="icono">🛒</span><span class="texto-nav">Carrito</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="listado-box">
+        <div class="listado-header">
+            <div>
+                <h1>Todos los productos</h1>
+                <p class="subtitulo">Descubrí nuestros productos</p>
+            </div>
+            <div class="vista-selector">
+                <a href="listado_box.html" class="vista-btn activo">▦</a>
+                <a href="listado_tabla.html" class="vista-btn">☰</a>
+            </div>
+        </div>
+
+        <div class="filtros">
+            <button class="filtro-btn activo">Todos</button>
+            <button class="filtro-btn">Categoría A</button>
+            <button class="filtro-btn">Categoría B</button>
+            <button class="filtro-btn">Categoría C</button>
+        </div>
+
+        <div class="productos-grid">
+            <article class="producto">
+                <img src="https://placehold.co/300x300/1A1A1A/F5D033?text=Producto+1" alt="Producto 1">
+                <h3>Producto 1</h3>
+                <p class="precio">$10000</p>
+                <a href="producto.html" class="btn">Ver</a>
+            </article>
+            <article class="producto">
+                <img src="https://placehold.co/300x300/1A1A1A/F5D033?text=Producto+2" alt="Producto 2">
+                <h3>Producto 2</h3>
+                <p class="precio">$15000</p>
+                <a href="producto.html" class="btn">Ver</a>
+            </article>
+            <article class="producto">
+                <img src="https://placehold.co/300x300/1A1A1A/F5D033?text=Producto+3" alt="Producto 3">
+                <h3>Producto 3</h3>
+                <p class="precio">$20000</p>
+                <a href="producto.html" class="btn">Ver</a>
+            </article>
+            <article class="producto">
+                <img src="https://placehold.co/300x300/1A1A1A/F5D033?text=Producto+4" alt="Producto 4">
+                <h3>Producto 4</h3>
+                <p class="precio">$25000</p>
+                <a href="producto.html" class="btn">Ver</a>
+            </article>
+            <article class="producto">
+                <img src="https://placehold.co/300x300/1A1A1A/F5D033?text=Producto+5" alt="Producto 5">
+                <h3>Producto 5</h3>
+                <p class="precio">$30000</p>
+                <a href="producto.html" class="btn">Ver</a>
+            </article>
+            <article class="producto">
+                <img src="https://placehold.co/300x300/1A1A1A/F5D033?text=Producto+6" alt="Producto 6">
+                <h3>Producto 6</h3>
+                <p class="precio">$35000</p>
+                <a href="producto.html" class="btn">Ver</a>
+            </article>
+            <article class="producto">
+                <img src="https://placehold.co/300x300/1A1A1A/F5D033?text=Producto+7" alt="Producto 7">
+                <h3>Producto 7</h3>
+                <p class="precio">$40000</p>
+                <a href="producto.html" class="btn">Ver</a>
+            </article>
+            <article class="producto">
+                <img src="https://placehold.co/300x300/1A1A1A/F5D033?text=Producto+8" alt="Producto 8">
+                <h3>Producto 8</h3>
+                <p class="precio">$45000</p>
+                <a href="producto.html" class="btn">Ver</a>
+            </article>
+            <article class="producto">
+                <img src="https://placehold.co/300x300/1A1A1A/F5D033?text=Producto+9" alt="Producto 9">
+                <h3>Producto 9</h3>
+                <p class="precio">$50000</p>
+                <a href="producto.html" class="btn">Ver</a>
+            </article>
+            <article class="producto">
+                <img src="https://placehold.co/300x300/1A1A1A/F5D033?text=Producto+10" alt="Producto 10">
+                <h3>Producto 10</h3>
+                <p class="precio">$55000</p>
+                <a href="producto.html" class="btn">Ver</a>
+            </article>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-info">
+            <h3>ANStore</h3>
+            <p>everything u need.</p>
+        </div>
+
+        <div class="footer-columna">
+            <h3>Soporte</h3>
+            <ul>
+                <li><a href="#">Preguntas frecuentes</a></li>
+                <li><a href="#">Envíos y devoluciones</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-columna">
+            <h3>Explorá</h3>
+            <ul>
+                <li><a href="#">Ver productos</a></li>
+                <li><a href="#">Novedades</a></li>
+            </ul>
+        </div>
+
+        <p class="footer-copyright">&copy; 2026 ANStore. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

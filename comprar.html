@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANStore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <!-- barra de anuncio: quedó igual, estaba bien -->
+        <div class="anuncio">Envío gratis en compras mayores a $15000!</div>
+
+        <!-- contenedor de la barra principal, para poder alinear las 3 partes con CSS después -->
+        <div class="header-principal">
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+
+            <nav>
+                <ul>
+                    <li><a href="listado_box.html">Shop</a></li>
+                    <li><a href="#">Sobre nosotros</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Login</a></li>
+                </ul>
+            </nav>
+
+            <a href="index.html" class="logo">ANStore</a>
+
+            <div class="header-acciones">
+                <a href="#" class="accion-icono" aria-label="Buscar">
+                    <span class="icono">🔍</span><span class="texto-nav">Buscar</span>
+                </a>
+                <a href="comprar.html" class="accion-icono" aria-label="Carrito">
+                    <span class="icono">🛒</span><span class="texto-nav">Carrito</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="comprar">
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required>
+
+            <label for="direccion">Dirección:</label>
+            <textarea id="direccion" name="direccion" required></textarea>
+
+            <div class="metodo-pago-item">
+            <input type="radio" id="tarjeta" name="metodoPago" value="tarjeta" required>
+            <label for="tarjeta">Tarjeta de crédito/debito</label>
+            </div>
+
+            <div class="metodo-pago-item">
+            <input type="radio" id="transferencia" name="metodoPago" value="transferencia" required>
+            <label for="transferencia">Transferencia bancaria</label>
+            </div>
+
+            <div class="metodo-pago-item">
+            <input type="radio" id="mercadopago" name="metodoPago" value="mercadopago" required>
+            <label for="mercadopago">Mercado Pago</label>
+            </div>
+
+            <button type="submit">Comprar</button>
+        </form>
+
+        <aside class="resumen-pedido">
+            <h2>Resumen del pedido</h2>
+
+            <div class="resumen-item">
+                <img src="https://placehold.co/80x80/1A1A1A/F5D033?text=P1" alt="Producto 1">
+                <div class="resumen-item-info">
+                    <p>Producto 1</p>
+                    <p class="precio">$10000</p>
+                </div>
+            </div>
+
+            <div class="resumen-item">
+                <img src="https://placehold.co/80x80/1A1A1A/F5D033?text=P2" alt="Producto 2">
+                <div class="resumen-item-info">
+                    <p>Producto 2</p>
+                    <p class="precio">$15000</p>
+                </div>
+            </div>
+
+            <p class="resumen-total">Total: $25000</p>
+        </aside>
+    </section>
+
+    <footer>
+        <div class="footer-info">
+            <h3>ANStore</h3>
+            <p>everything u need.</p>
+        </div>
+
+        <div class="footer-columna">
+            <h3>Soporte</h3>
+            <ul>
+                <li><a href="#">Preguntas frecuentes</a></li>
+                <li><a href="#">Envíos y devoluciones</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-columna">
+            <h3>Explorá</h3>
+            <ul>
+                <li><a href="#">Ver productos</a></li>
+                <li><a href="#">Novedades</a></li>
+            </ul>
+        </div>
+
+        <p class="footer-copyright">&copy; 2026 ANStore. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
