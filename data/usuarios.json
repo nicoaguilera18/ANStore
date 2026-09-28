@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "email": "agustin@anstore.com",
+    "password": "Constraseña2026",
+    "nombre": "Agustín",
+    "rol": "cliente"
+  },
+  {
+    "id": 2,
+    "email": "test@anstore.com",
+    "password": "UserSecure123",
+    "nombre": "Usuario Prueba",
+    "rol": "cliente"
+  }
+]
