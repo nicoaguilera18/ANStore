@@ -289,6 +289,27 @@ tbody tr {
     color: #555;
 }
 
+/* ===== BUSCADOR ===== */
+.buscador {
+    margin-bottom: 32px;
+}
+
+.buscador input {
+    width: 100%;
+    max-width: 400px;
+    padding: 14px 20px;
+    border: 1px solid var(--color-negro);
+    border-radius: 30px;
+    font-family: var(--fuente-principal);
+    font-size: 1rem;
+}
+
+.buscador input:focus {
+    outline: none;
+    border-color: var(--color-acento);
+    border-width: 2px;
+}
+
 /* ===== SELECTOR DE VISTA ===== */
 .listado-header {
     display: flex;
