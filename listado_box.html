@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANStore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <!-- barra de anuncio: quedó igual, estaba bien -->
+        <div class="anuncio">Envío gratis en compras mayores a $15000!</div>
+
+        <!-- contenedor de la barra principal, para poder alinear las 3 partes con CSS después -->
+        <div class="header-principal">
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+
+            <nav>
+                <ul>
+                    <li><a href="listado_box.html">Shop</a></li>
+                    <li><a href="#">Sobre nosotros</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Login</a></li>
+                </ul>
+            </nav>
+
+            <a href="index.html" class="logo">ANStore</a>
+
+            <div class="header-acciones">
+                <a href="#" class="accion-icono" aria-label="Buscar">
+                    <span class="icono">🔍</span><span class="texto-nav">Buscar</span>
+                </a>
+                <a href="comprar.html" class="accion-icono" aria-label="Carrito">
+                    <span class="icono">🛒</span><span class="texto-nav">Carrito</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="listado-box">
+            <div class="listado-header">
+                <div>
+                    <h1>Todos los productos</h1>
+                    <p class="subtitulo">Descubrí nuestros productos</p>
+                </div>
+                <div class="vista-selector">
+                    <a href="listado_box.html" class="vista-btn activo">▦</a>
+                    <a href="listado_tabla.html" class="vista-btn">☰</a>
+                </div>
+            </div>
+
+            <div class="filtros">
+                <button class="filtro-btn activo">Todos</button>
+                <button class="filtro-btn">Categoría A</button>
+                <button class="filtro-btn">Categoría B</button>
+                <button class="filtro-btn">Categoría C</button>
+            </div>
+
+            <div class="buscador">
+                <input type="text" id="buscador" placeholder="Buscar productos...">
+            </div>
+
+            <div class="productos-grid" id="productosGrid"></div>
+
+            </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-info">
+            <h3>ANStore</h3>
+            <p>everything u need.</p>
+        </div>
+
+        <div class="footer-columna">
+            <h3>Soporte</h3>
+            <ul>
+                <li><a href="#">Preguntas frecuentes</a></li>
+                <li><a href="#">Envíos y devoluciones</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-columna">
+            <h3>Explorá</h3>
+            <ul>
+                <li><a href="#">Ver productos</a></li>
+                <li><a href="#">Novedades</a></li>
+            </ul>
+        </div>
+
+        <p class="footer-copyright">&copy; 2026 ANStore. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>
