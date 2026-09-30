@@ -12,7 +12,7 @@
 
 ---
 
-Link al documento con la fundamentación de Schenone Agustín:
+## Link al documento con la fundamentación de Schenone Agustín:
 [Fundamentación de las implementaciones](https://docs.google.com/document/d/19b0LjUGiG3AHw-Euc9T683sbgxMNPVPUChKLeyx9t8k/edit?usp=sharing)
 
 ## Link al documento con la fundamentación de Aguilera Nicolas:
