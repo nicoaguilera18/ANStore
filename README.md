@@ -6,7 +6,7 @@
 
 ---
 
-## Integrante:
+## Integrantes:
 - **Aguilera Danese Leandro Nicolás**
 - **Schenone Bravo Agustín Ezequiel**
 
