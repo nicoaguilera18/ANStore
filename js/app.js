@@ -194,8 +194,9 @@ function mostrarFeedback(mensaje, tipo) {
 
 // ---------------------------------------------------------
 // CATÁLOGO (solo existe en listado_box.html)
-// Antes usaba innerHTML con los nombres; ahora se arma con
-// createElement + textContent para evitar XSS.
+// Los datos salen de obtenerCatalogo() y las tarjetas de
+// crearTarjetaProducto() (ambas en carrito.js / tienda.js),
+// armadas con createElement + textContent para evitar XSS.
 // ---------------------------------------------------------
 let listaProductos = [];
 
@@ -203,8 +204,15 @@ async function iniciarCatalogo() {
     const contenedor = document.getElementById('productosGrid');
     if (!contenedor) return;
 
-    const respuesta = await fetch('productos.json');
-    listaProductos = await respuesta.json();
+    try {
+        listaProductos = await obtenerCatalogo();
+    } catch {
+        const p = document.createElement('p');
+        p.className = 'mensaje-alerta alerta-error';
+        p.textContent = 'No se pudieron cargar los productos.';
+        contenedor.replaceChildren(p);
+        return;
+    }
     mostrarProductos(listaProductos);
 
     const inputBuscador = document.getElementById('buscador');
@@ -216,29 +224,5 @@ async function iniciarCatalogo() {
 
 function mostrarProductos(productos) {
     const contenedor = document.getElementById('productosGrid');
-    contenedor.replaceChildren();
-
-    productos.forEach(producto => {
-        const article = document.createElement('article');
-        article.className = 'producto';
-
-        const img = document.createElement('img');
-        img.src = `https://placehold.co/300x300/1A1A1A/F5D033?text=${encodeURIComponent(producto.nombre)}`;
-        img.alt = producto.nombre;
-
-        const h3 = document.createElement('h3');
-        h3.textContent = producto.nombre;
-
-        const precio = document.createElement('p');
-        precio.className = 'precio';
-        precio.textContent = `$${producto.precio}`;
-
-        const link = document.createElement('a');
-        link.href = 'producto.html';
-        link.className = 'btn';
-        link.textContent = 'Ver';
-
-        article.append(img, h3, precio, link);
-        contenedor.appendChild(article);
-    });
+    contenedor.replaceChildren(...productos.map(crearTarjetaProducto));
 }

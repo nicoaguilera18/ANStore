@@ -40,8 +40,9 @@
                 <a href="login.html" class="accion-icono" data-solo-sesion hidden>
                     <span class="icono">👤</span><span class="texto-nav js-nombre-usuario"></span>
                 </a>
-                <a href="comprar.html" class="accion-icono" aria-label="Carrito">
+                <a href="comprar.html" class="accion-icono" aria-label="Carrito" data-carrito-link>
                     <span class="icono">🛒</span><span class="texto-nav">Carrito</span>
+                    <span class="carrito-contador" data-carrito-contador></span>
                 </a>
             </div>
         </div>
@@ -72,7 +73,7 @@
                 <input type="text" id="buscador" placeholder="Buscar productos...">
             </div>
 
-            <div class="productos-grid" id="productosGrid"></div>
+            <div class="productos-grid" id="productosGrid" aria-live="polite"></div>
         </section>
 
     </main>
@@ -103,6 +104,8 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/carrito.js"></script>
+    <script src="js/tienda.js"></script>
     <script src="js/app.js"></script>
 
 </body>
