@@ -34,8 +34,9 @@
                 <a href="#" class="accion-icono" aria-label="Buscar">
                     <span class="icono">🔍</span><span class="texto-nav">Buscar</span>
                 </a>
-                <a href="comprar.html" class="accion-icono" aria-label="Carrito">
+                <a href="comprar.html" class="accion-icono" aria-label="Carrito" data-carrito-link>
                     <span class="icono">🛒</span><span class="texto-nav">Carrito</span>
+                    <span class="carrito-contador" data-carrito-contador></span>
                 </a>
             </div>
         </div>
@@ -43,21 +44,8 @@
 
     <main>
 
-        <section class="producto-detalle">
-            <div class="producto-imagen">
-                <img src="https://placehold.co/600x500/1A1A1A/F5D033?text=Producto" alt="Imagen del producto">
-            </div>
-            <div class="producto-info">
-                <h1>Nombre del Producto</h1>
-                <p class="precio">$10000</p>
-                <p class="descripcion">Descripción del producto</p>
-
-                <label for="cantidad">Cantidad:</label>
-                <input type="number" id="cantidad" name="cantidad" min="1" value="1">
-
-
-                <a href="#" class="btn">Agregar al carrito</a>
-            </div>
+        <section class="producto-detalle" id="detalleProducto" aria-live="polite">
+            <p>Cargando producto…</p>
         </section>
 
     </main>    
@@ -88,6 +76,8 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/carrito.js"></script>
+    <script src="js/tienda.js"></script>
 
 </body>
 </html>
