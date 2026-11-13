@@ -28,7 +28,7 @@
         </nav>
         <div class="header-acciones">
             <a href="login.html" class="accion-icono">👤 <span class="texto-nav" data-solo-visitante>Ingresar</span><span class="texto-nav js-nombre-usuario" data-solo-sesion hidden></span></a>
-            <a href="comprar.html" class="accion-icono">🛒 <span class="texto-nav">Carrito</span></a>
+            <a href="comprar.html" class="accion-icono" aria-label="Carrito" data-carrito-link>🛒 <span class="texto-nav">Carrito</span> <span class="carrito-contador" data-carrito-contador></span></a>
         </div>
     </header>
 
@@ -122,6 +122,7 @@
         </div>
     </footer>
 
+    <script src="js/carrito.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

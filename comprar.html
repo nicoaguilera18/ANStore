@@ -34,74 +34,65 @@
                 <a href="#" class="accion-icono" aria-label="Buscar">
                     <span class="icono">🔍</span><span class="texto-nav">Buscar</span>
                 </a>
-                <a href="comprar.html" class="accion-icono" aria-label="Carrito">
+                <a href="comprar.html" class="accion-icono" aria-label="Carrito" data-carrito-link>
                     <span class="icono">🛒</span><span class="texto-nav">Carrito</span>
+                    <span class="carrito-contador" data-carrito-contador></span>
                 </a>
             </div>
         </div>
     </header>
 
     <main>
-
         <section class="comprar">
-            <form>
+            <form id="form-compra" novalidate>
+                <h1>Finalizar compra</h1>
+
                 <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
+                <input type="text" id="nombre" name="nombre" autocomplete="name" required>
 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" autocomplete="email" required>
 
                 <label for="telefono">Teléfono:</label>
-                <input type="tel" id="telefono" name="telefono" required>
+                <input type="tel" id="telefono" name="telefono" autocomplete="tel" required>
 
                 <label for="direccion">Dirección:</label>
-                <textarea id="direccion" name="direccion" required></textarea>
+                <textarea id="direccion" name="direccion" autocomplete="street-address" required></textarea>
 
-                <div class="metodo-pago-item">
-                <input type="radio" id="tarjeta" name="metodoPago" value="tarjeta" required>
-                <label for="tarjeta">Tarjeta de crédito/debito</label>
-                </div>
-
-                <div class="metodo-pago-item">
-                <input type="radio" id="transferencia" name="metodoPago" value="transferencia" required>
-                <label for="transferencia">Transferencia bancaria</label>
-                </div>
-
-                <div class="metodo-pago-item">
-                <input type="radio" id="mercadopago" name="metodoPago" value="mercadopago" required>
-                <label for="mercadopago">Mercado Pago</label>
-                </div>
+                <fieldset class="metodo-pago">
+                    <legend>Medio de pago</legend>
+                    <div class="metodo-pago-item">
+                        <input type="radio" id="tarjeta" name="metodoPago" value="tarjeta" required>
+                        <label for="tarjeta">Tarjeta de crédito/débito</label>
+                    </div>
+                    <div class="metodo-pago-item">
+                        <input type="radio" id="transferencia" name="metodoPago" value="transferencia" required>
+                        <label for="transferencia">Transferencia bancaria</label>
+                    </div>
+                    <div class="metodo-pago-item">
+                        <input type="radio" id="mercadopago" name="metodoPago" value="mercadopago" required>
+                        <label for="mercadopago">Mercado Pago</label>
+                    </div>
+                </fieldset>
 
                 <button type="submit">Comprar</button>
+                <div id="mensaje-compra" class="mensaje-alerta" aria-live="polite"></div>
             </form>
 
-            <aside class="resumen-pedido">
-                <h2>Resumen del pedido</h2>
+            <aside class="resumen-pedido" aria-labelledby="titulo-resumen">
+                <h2 id="titulo-resumen" tabindex="-1">Resumen del pedido</h2>
 
-                <div class="resumen-item">
-                    <img src="https://placehold.co/80x80/1A1A1A/F5D033?text=P1" alt="Producto 1">
-                    <div class="resumen-item-info">
-                        <p>Producto 1</p>
-                        <p class="precio">$10000</p>
-                        <label>Cantidad: <input type="number" id="cantidad1" class="input-cantidad" value="1" min="1"></label>
-                        <p id="subtotal1">Subtotal: $10000</p>
-                    </div>
+                <div id="carrito-vacio" hidden>
+                    <p>Tu carrito está vacío.</p>
+                    <a href="listado_box.html" class="btn">Ver productos</a>
                 </div>
 
-                <div class="resumen-item">
-                    <img src="https://placehold.co/80x80/1A1A1A/F5D033?text=P2" alt="Producto 2">
-                    <div class="resumen-item-info">
-                        <p>Producto 2</p>
-                        <p class="precio">$15000</p>
-                        <label>Cantidad: <input type="number" id ="cantidad2" class="input-cantidad" value="1" min="1"></label>
-                        <p id="subtotal2">Subtotal: $15000</p>
-                    </div>
-                </div>
+                <ul id="resumenItems" class="resumen-lista" aria-live="polite"></ul>
 
-                <p class="resumen-total">Total: $25000</p>
+                <p id="resumenTotal" class="resumen-total" aria-live="polite">Total: $0</p>
+                <button type="button" id="btn-vaciar" class="btn-vaciar" hidden>Vaciar carrito</button>
             </aside>
         </section>
-
     </main>        
 
     <footer>
@@ -130,33 +121,8 @@
     </footer>
 
     <script src="js/script.js"></script>
-    <script>
-        let inputProd1 = document.getElementById("cantidad1");
-        let textoSubtotal1 = document.getElementById("subtotal1");
-
-        let inputProd2 = document.getElementById("cantidad2");
-        let textoSubtotal2 = document.getElementById("subtotal2");
-
-        inputProd1.addEventListener("input", function() {
-        let cantidad = inputProd1.value; // Agarramos el número que el usuario escribió
-        let precio = 10000; // El precio fijo de este producto
-        
-        let nuevoSubtotal = cantidad * precio; // Hacemos la matemática
-        
-        // Lo mostramos en la pantalla modificando el texto
-        textoSubtotal1.innerText = "Subtotal: $" + nuevoSubtotal; 
-
-        inputProd2.addEventListener("input", function() {
-        let cantidad = inputProd2.value; // Agarramos el número que el usuario escribió
-        let precio = 15000; // El precio fijo de este producto
-        
-        let nuevoSubtotal = cantidad * precio; // Hacemos la matemática
-        
-        // Lo mostramos en la pantalla modificando el texto
-        textoSubtotal2.innerText = "Subtotal: $" + nuevoSubtotal; 
-});
-});
-    </script>
+    <script src="js/carrito.js"></script>
+    <script src="js/tienda.js"></script>
 
 </body>
 </html>
