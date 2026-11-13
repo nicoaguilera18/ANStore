@@ -1,12 +1,12 @@
 [
-    { "id": 1, "nombre": "Producto 1", "categoria": "Categoría A", "precio": 10000 },
-    { "id": 2, "nombre": "Producto 2", "categoria": "Categoría B", "precio": 15000 },
-    { "id": 3, "nombre": "Producto 3", "categoria": "Categoría A", "precio": 20000 },
-    { "id": 4, "nombre": "Producto 4", "categoria": "Categoría C", "precio": 25000 },
-    { "id": 5, "nombre": "Producto 5", "categoria": "Categoría B", "precio": 30000 },
-    { "id": 6, "nombre": "Producto 6", "categoria": "Categoría A", "precio": 35000 },
-    { "id": 7, "nombre": "Producto 7", "categoria": "Categoría C", "precio": 40000 },
-    { "id": 8, "nombre": "Producto 8", "categoria": "Categoría B", "precio": 45000 },
-    { "id": 9, "nombre": "Producto 9", "categoria": "Categoría A", "precio": 50000 },
-    { "id": 10, "nombre": "Producto 10", "categoria": "Categoría C", "precio": 55000 }
+    { "id": 1,  "nombre": "Producto 1",  "categoria": "Categoría A", "precio": 10000, "stock": 15, "descripcion": "Descripción del Producto 1." },
+    { "id": 2,  "nombre": "Producto 2",  "categoria": "Categoría B", "precio": 15000, "stock": 8,  "descripcion": "Descripción del Producto 2." },
+    { "id": 3,  "nombre": "Producto 3",  "categoria": "Categoría A", "precio": 20000, "stock": 12, "descripcion": "Descripción del Producto 3." },
+    { "id": 4,  "nombre": "Producto 4",  "categoria": "Categoría C", "precio": 25000, "stock": 5,  "descripcion": "Descripción del Producto 4." },
+    { "id": 5,  "nombre": "Producto 5",  "categoria": "Categoría B", "precio": 30000, "stock": 20, "descripcion": "Descripción del Producto 5." },
+    { "id": 6,  "nombre": "Producto 6",  "categoria": "Categoría A", "precio": 35000, "stock": 7,  "descripcion": "Descripción del Producto 6." },
+    { "id": 7,  "nombre": "Producto 7",  "categoria": "Categoría C", "precio": 40000, "stock": 3,  "descripcion": "Descripción del Producto 7." },
+    { "id": 8,  "nombre": "Producto 8",  "categoria": "Categoría B", "precio": 45000, "stock": 10, "descripcion": "Descripción del Producto 8." },
+    { "id": 9,  "nombre": "Producto 9",  "categoria": "Categoría A", "precio": 50000, "stock": 6,  "descripcion": "Descripción del Producto 9." },
+    { "id": 10, "nombre": "Producto 10", "categoria": "Categoría C", "precio": 55000, "stock": 4,  "descripcion": "Descripción del Producto 10." }
 ]
