@@ -1,56 +1,46 @@
 <?php
-// POST api/registro.php
-// Recibe JSON: { "nombre": "...", "email": "...", "password": "..." }
 
-header('Content-Type: application/json; charset=utf-8');
+require_once __DIR__ . '/bootstrap.php';
+require_once __DIR__ . '/../models/UsuarioModel.php';
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    http_response_code(405); // Método no permitido
-    echo json_encode(['error' => 'Método no permitido']);
-    exit;
+exigirMetodo('POST');
+$datos = leerJSON();
+$nombre = $datos['nombre'] ?? null;
+$apellido = $datos['apellido'] ?? null;
+$email = $datos['email'] ?? null;
+$contrasena = $datos['password'] ?? null;
+
+if (!is_string($nombre) || !is_string($apellido) || !is_string($email)
+    || !is_string($contrasena)) {
+    responder(400, ['error' => 'Completá nombre, apellido, correo y contraseña como texto']);
+}
+$nombre = trim($nombre);
+$apellido = trim($apellido);
+$email = trim($email);
+
+if ($nombre === '' || $apellido === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    responder(400, ['error' => 'Completá nombre, apellido y un correo válido']);
+}
+if (strlen($nombre) > 100 || strlen($apellido) > 100 || strlen($email) > 150) {
+    responder(400, ['error' => 'Alguno de los campos supera la longitud permitida']);
+}
+if (strlen($contrasena) < 8 || strlen($contrasena) > 72) {
+    responder(400, ['error' => 'La contraseña debe tener entre 8 y 72 bytes']);
 }
 
-require __DIR__ . '/conexion.php';
+try {
+    $pdo = obtenerConexion();
+    if (!emailDisponible($pdo, $email)) {
+        responder(409, ['error' => 'Ese correo ya está registrado']);
+    }
 
-// 1) Leer el cuerpo JSON enviado por fetch()
-$datos = json_decode(file_get_contents('php://input'), true);
-
-$nombre   = trim($datos['nombre']   ?? '');
-$email    = trim($datos['email']    ?? '');
-$password =      $datos['password'] ?? '';
-
-// 2) Validaciones básicas
-if ($nombre === '' || $email === '' || $password === '') {
-    http_response_code(400);
-    echo json_encode(['error' => 'Todos los campos son obligatorios']);
-    exit;
-}
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    http_response_code(400);
-    echo json_encode(['error' => 'El correo no es válido']);
-    exit;
-}
-if (strlen($password) < 6) {
-    http_response_code(400);
-    echo json_encode(['error' => 'La contraseña debe tener al menos 6 caracteres']);
-    exit;
+    $hash = password_hash($contrasena, PASSWORD_BCRYPT);
+    $id = crearCliente($pdo, $nombre, $apellido, $email, $hash);
+} catch (PDOException $error) {
+    if ($error->getCode() === '23000') {
+        responder(409, ['error' => 'Ese correo ya está registrado']);
+    }
+    reportarErrorPDO($error);
 }
 
-// 3) Verificar que el email no exista (Prepared Statement)
-$stmt = $pdo->prepare('SELECT id FROM usuarios WHERE email = ?');
-$stmt->execute([$email]);
-if ($stmt->fetch()) {
-    http_response_code(409); // Conflicto
-    echo json_encode(['error' => 'Ese correo ya está registrado']);
-    exit;
-}
-
-// 4) Hashear la contraseña con BCRYPT (nunca se guarda en texto plano)
-$hash = password_hash($password, PASSWORD_BCRYPT);
-
-// 5) Insertar con Prepared Statement (evita inyección SQL)
-$stmt = $pdo->prepare('INSERT INTO usuarios (nombre, email, password) VALUES (?, ?, ?)');
-$stmt->execute([$nombre, $email, $hash]);
-
-http_response_code(201); // Creado
-echo json_encode(['mensaje' => 'Usuario registrado correctamente']);
+responder(201, ['mensaje' => 'Usuario registrado correctamente', 'id' => $id]);

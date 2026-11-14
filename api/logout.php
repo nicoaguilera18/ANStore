@@ -1,13 +1,19 @@
 <?php
-// POST api/logout.php  -> destruye la sesión actual
 
-header('Content-Type: application/json; charset=utf-8');
+require_once __DIR__ . '/bootstrap.php';
 
-session_set_cookie_params(['httponly' => true, 'samesite' => 'Strict']);
-session_start();
+exigirMetodo('POST');
+iniciarSesionSegura();
+$_SESSION = [];
+session_destroy();
 
-$_SESSION = [];                 // vaciar datos
-session_destroy();              // eliminar la sesión en el servidor
-setcookie(session_name(), '', time() - 3600, '/'); // borrar la cookie del navegador
+$https = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off';
+setcookie(session_name(), '', [
+    'expires' => time() - 3600,
+    'path' => '/',
+    'secure' => $https,
+    'httponly' => true,
+    'samesite' => 'Strict',
+]);
 
-echo json_encode(['mensaje' => 'Sesión cerrada']);
+responder(200, ['mensaje' => 'Sesión cerrada']);
