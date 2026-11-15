@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ANStore, componentes y computadoras armadas.">
+    <title>ANStore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#app">Saltar al contenido principal</a>
+    <div class="anuncio">Envío gratis en compras mayores a $75.000</div>
+    <header class="header-principal">
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navegacion-principal">☰</button>
+        <a href="#/" class="logo" data-nav>ANStore</a>
+        <nav id="navegacion-principal" aria-label="Navegación principal">
+            <ul>
+                <li><a href="#/" data-nav>Inicio</a></li>
+                <li><a href="#/productos?vista=grilla" data-nav>Productos</a></li>
+                <li><a href="#/productos?vista=tabla" data-nav>Vista tabla</a></li>
+                <li><a href="#/carrito" data-nav>Carrito <span id="carrito-contador"></span></a></li>
+                <li><a href="#/login" data-nav id="enlace-cuenta">Ingresar</a></li>
+                <li><a href="#/admin" data-nav id="enlace-admin" hidden>Administración</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <p id="estado-global" class="estado-global" role="status" aria-live="polite"></p>
+    <main id="app" tabindex="-1">
+        <p role="status" aria-live="polite">Cargando ANStore...</p>
+    </main>
+
+    <footer>
+        <div>
+            <h2>ANStore</h2>
+            <p>Componentes y computadoras armadas.</p>
+        </div>
+        <p class="footer-copyright">&copy; 2026 ANStore. Todos los derechos reservados.</p>
+    </footer>
+    <script src="js/app.js"></script>
+</body>
+</html>

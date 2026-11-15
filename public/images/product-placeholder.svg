@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img">
+  <rect width="640" height="480" rx="24" fill="#1a1a1a"/>
+  <path d="M206 130h228v190H206z" fill="#f5d033"/>
+  <path d="M235 160h170v130H235z" fill="#1a1a1a"/>
+  <circle cx="320" cy="225" r="36" fill="#f5d033"/>
+  <path d="M290 350h60m-30-30v30" stroke="#f5d033" stroke-linecap="round" stroke-width="12"/>
+  <text x="320" y="410" fill="#fff" font-family="Arial,sans-serif" font-size="32" font-weight="700" text-anchor="middle">ANStore</text>
+</svg>
