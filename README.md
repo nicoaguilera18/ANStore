@@ -50,19 +50,19 @@ Las cuentas de administrador pueden recorrer el catálogo y consultar el detalle
 
 ## Puesta en marcha con XAMPP
 
-1. Copiá la carpeta `ANStore` dentro de `C:\xampp\htdocs`.
-2. Iniciá Apache y MySQL desde XAMPP.
-3. En phpMyAdmin, importá `database/anstore.sql` una sola vez. El script crea la base `gestion_hardware`; está pensado para ejecutarse sobre una base vacía y no elimina bases existentes.
-4. Si ya tenías una base `gestion_hardware` anterior a las imágenes de productos y todavía no existe `producto.imagen`, ejecutá una sola vez `database/actualizar_imagen_productos.sql`. Para agregar la portada editable, ejecutá `database/actualizar_portada_inicio.sql`; esta migración se puede repetir sin sobrescribir una portada ya configurada.
-5. Si MySQL no usa `root` sin contraseña, actualizá las variables de conexión en `config/conexion.php`.
-6. Para habilitar el acceso de administrador, abrí una consola en la carpeta del proyecto y ejecutá:
+1. Copie la carpeta `ANStore` dentro de `C:\xampp\htdocs`.
+2. Inicie Apache y MySQL desde XAMPP.
+3. En phpMyAdmin, importar `database/anstore.sql` una sola vez. El script crea la base `gestion_hardware`; está pensado para ejecutarse sobre una base vacía y no elimina bases existentes.
+4. Si ya tenía una base `gestion_hardware` anterior a las imágenes de productos y todavía no existe `producto.imagen`, ejecute una sola vez `database/actualizar_imagen_productos.sql`. Para agregar la portada editable, ejecute `database/actualizar_portada_inicio.sql`; esta migración se puede repetir sin sobrescribir una portada ya configurada.
+5. Si MySQL no usa `root` sin contraseña, actualize las variables de conexión en `config/conexion.php`.
+6. Para habilitar el acceso de administrador, abra una consola en la carpeta del proyecto y ejecute:
 
    ```powershell
    C:\xampp\php\php.exe scripts\crear_admin.php
    ```
 
    El asistente solicita nombre, correo y contraseña; la contraseña se guarda con BCRYPT. La cuenta inicial de catálogo `admin@anstore.com` queda sin contraseña hasta completar este paso.
-7. Abrí `http://localhost/ANStore/`. La página inicial redirige a la SPA en `public/`.
+7. Abra `http://localhost/ANStore/`. La página inicial redirige a la SPA en `public/`.
 
 El script incluye dos cuentas de cliente de prueba:
 
