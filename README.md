@@ -36,7 +36,6 @@ ANStore/
 |   `-- js/app.js
 |-- scripts/
 |   `-- crear_admin.php          Provisionamiento local de una cuenta administradora
-|-- docs/                        Informe AE4 y evidencias visuales
 `-- README.md
 ```
 
@@ -112,18 +111,3 @@ Todos los endpoints devuelven `application/json; charset=utf-8`. En los ejemplos
 | `PUT admin/portada.php` | Sesión administrador, `{ "titulo", "subtitulo", "texto_alternativo" }` e imagen opcional Base64 o `null` para restaurar | Confirmación de actualización | 200, 400, 401, 403, 405, 500 |
 
 Los métodos no admitidos responden `405 Method Not Allowed`. Un visitante recibe `401` al solicitar recursos privados; una sesión autenticada sin rol administrador recibe `403` en las rutas de administración.
-
-## Informe AE4 y evidencias
-
-- `docs/Informe_Tecnico_AE4_ANStore.pdf`: informe técnico para la entrega.
-
-## Evidencias técnicas para la autoevaluación
-
-- **Adecuación funcional:** catálogo, detalle, carrito, compra, historial y administración conectados con la API y el modelo relacional; los flujos principales se probaron en XAMPP.
-- **Eficiencia de desempeño:** consumo asíncrono con `fetch()` y consultas preparadas. No se informa un puntaje de rendimiento ni una prueba de carga.
-- **Compatibilidad:** interfaz estática en `public/`, API PHP desacoplada y persistencia MySQL; la vista se probó en Chrome con XAMPP.
-- **Fiabilidad:** transacción/rollback de compra, bloqueo de stock, triggers de actualización y auditoría; compra por encima del stock disponible rechazada con HTTP 409.
-- **Seguridad:** BCRYPT, regeneración de sesión, control de rol, PDO con parámetros nombrados y renderizado de texto con `textContent`; se verificaron HTTP 401 para acceso anónimo y 403 para cliente en ruta administrativa.
-- **Usabilidad y accesibilidad:** controles nativos, foco `:focus-visible`, regiones `aria-live`, enlace de salto y prueba de navegación por teclado. Ver matriz y capturas en `docs/`.
-- **Mantenibilidad:** controladores en `api/`, persistencia en `models/`, configuración separada y cliente en `public/js/app.js`.
-
